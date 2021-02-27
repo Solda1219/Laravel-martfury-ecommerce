@@ -1,0 +1,7 @@
+.ps-btn, button.ps-btn {
+    background-color: $color-organic;
+    color: #ffffff;
+    &:hover {
+        background-color: darken($color-organic, 5%);
+    }
+}

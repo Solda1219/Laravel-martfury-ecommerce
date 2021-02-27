@@ -1,0 +1,115 @@
+.ps-cart--mini {
+    position: relative;
+
+    .ps-cart__items {
+        position: relative;
+        padding: 20px;
+        background-color: #fff;
+        border: 1px solid #e1e1e1;
+        border-bottom: none;
+
+        &:before {
+            content: '';
+            display: inline-block;
+            position: absolute;
+            top: -8px;
+            right: 30px;
+            width: 16px;
+            height: 16px;
+            border-left: 1px solid #e1e1e1;
+            border-top: 1px solid #e1e1e1;
+            background-color: #ffffff;
+            @include transform(rotate(45deg));
+            @include transform-origin(50% 50%);
+
+        }
+
+        .ps-product--cart-mobile {
+            margin-bottom: 30px;
+        }
+    }
+
+    .ps-cart__content {
+        position: absolute;
+        min-width: 370px;
+        right: -30px;
+        z-index: 30;
+        padding-top: 10px;
+        @include transform(translate(0 20px));
+        transition: all .4s ease;
+        @include hidden;
+    }
+
+    .ps-cart__footer {
+        padding: 10px 20px 20px;
+        background-color: #ffffff;
+        border: 1px solid #e1e1e1;
+        border-top: 0;
+
+        h3 {
+            display: block;
+            margin-bottom: 20px;
+            font-size: 18px;
+            font-weight: 600;
+
+            strong {
+                float: right;
+                color: red;
+            }
+        }
+    }
+
+    figure {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: center;
+
+        .ps-btn {
+            padding: 12px 25px;
+        }
+    }
+
+    &:hover {
+        .ps-cart__content {
+            @include transform(translate(0, 0px));
+            @include show;
+        }
+    }
+}
+
+.ps-cart--mobile {
+
+    .ps-cart__content {
+        padding: 20px 10px 0;
+        min-height: calc(100vh - 250px);
+    }
+
+    .ps-cart__footer {
+        padding: 30px 20px;
+        border-top: 1px solid #e1e1e1;
+
+        h3 {
+            display: block;
+            margin-bottom: 20px;
+            font-size: 18px;
+            font-weight: 600;
+
+            strong {
+                float: right;
+                color: red;
+            }
+        }
+    }
+
+    figure {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: center;
+
+        .ps-btn {
+            padding: 12px 25px;
+        }
+    }
+}

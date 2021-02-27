@@ -1,0 +1,449 @@
+.owl-carousel {
+    position: relative;
+
+    .owl-item {
+        img {
+            width: auto;
+        }
+    }
+
+    .ps-product {
+        margin-bottom: 10px;
+    }
+}
+
+.ps-carousel--nav {
+    position: relative;
+    z-index: 10;
+
+    .owl-nav {
+        @include vertical-align();
+        z-index: 1;
+        width: 100%;
+        height: 0;
+
+        > * {
+            display: inline-block;
+            position: relative;
+            vertical-align: top;
+            width: 40px;
+            height: 40px;
+            color: #cccccc;
+            @include border-radius(50%);
+            background-color: transparent;
+            @include transition(all .4s ease);
+            @include transform(translateY(-50%));
+
+            i {
+                @include center;
+                font-size: 30px;
+            }
+
+            &:hover {
+                color: $color-heading;
+            }
+        }
+
+        .owl-prev {
+            margin-left: -70px;
+
+            i {
+                padding-right: 2px;
+            }
+        }
+
+        .owl-next {
+            float: right;
+            margin-right: -70px;
+
+            i {
+                padding-left: 2px;
+            }
+        }
+    }
+
+    .owl-dots {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        display: none !important;
+        text-align: center;
+
+        .owl-dot {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            margin-right: 8px;
+            background-color: rgba(#000, .3);
+            @include border-radius(50%);
+
+            &:last-child {
+                margin-right: 0;
+            }
+
+            &.active {
+                background-color: $color-1st;
+            }
+        }
+    }
+
+    &.inside {
+        .owl-nav {
+            z-index: 20;
+            height: 0;
+
+            > * {
+                @include transform(translateY(-50%));
+            }
+        }
+
+        .owl-prev {
+            margin-left: 3rem;
+
+            i {
+                padding-right: 5px;
+            }
+        }
+
+        .owl-next {
+            float: right;
+            margin-right: 3rem;
+
+            i {
+                padding-left: 5px;
+            }
+        }
+    }
+
+    @media (max-width: 1680px) {
+        .owl-nav {
+            .owl-prev {
+                margin-left: -40px;
+            }
+
+            .owl-next {
+                margin-right: -40px;
+            }
+        }
+    }
+
+    @include media("<lg") {
+        margin-bottom: 3rem;
+        padding-bottom: 30px;
+        .owl-nav {
+            display: none;
+        }
+
+        .owl-dots {
+            display: block !important;
+        }
+    }
+}
+
+.ps-carousel--animate {
+    @extend %list-reset;
+
+    .slick-dots {
+        position: absolute;
+        bottom: 20px;
+        left: 0;
+        width: 100%;
+        text-align: center;
+
+        li {
+            display: inline-block;
+            vertical-align: top;
+            line-height: 0;
+            margin-right: 10px;
+
+            button {
+                display: inline-block;
+                border: 0;
+                padding: 0;
+                font-size: 0;
+                width: 12px;
+                height: 12px;
+                vertical-align: top;
+                @include border-radius(50%);
+                background-color: rgba(#000, .5);
+            }
+
+            &.slick-active {
+                button {
+                    background-color: #000;
+                }
+            }
+
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+    }
+
+    @include media("<xs") {
+        .slick-dots {
+            bottom: 5px;
+
+            li {
+                button {
+                    width: 8px;
+                    height: 8px;
+                }
+            }
+        }
+    }
+}
+
+.ps-carousel--responsive {
+    position: relative;
+    z-index: 10;
+
+    .owl-dots {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        display: none !important;
+        text-align: center;
+
+        .owl-dot {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            margin-right: 6px;
+            border-radius: 50%;
+            background-color: rgba(#000, .3);
+
+            &:last-child {
+                margin-right: 0;
+            }
+
+            &.active {
+                background-color: $color-1st;
+            }
+        }
+    }
+
+    @include media("<lg") {
+        margin-bottom: 3rem;
+        padding-bottom: 30px;
+        .owl-nav {
+            display: none;
+        }
+
+        .owl-dots {
+            display: block !important;
+        }
+    }
+}
+
+.ps-carousel--product-box {
+    overflow: hidden;
+
+    .owl-nav {
+        @include vertical-align();
+        left: 0;
+        width: 100%;
+        height: 0;
+        display: flex;
+        justify-content: space-between;
+
+        > * {
+            position: relative;
+            background-color: rgba(#000, .5);
+            width: 30px;
+            height: 40px;
+
+            > i {
+                @include center();
+                color: #ffffff;
+            }
+        }
+
+        .owl-prev {
+            padding-right: 2px;
+            @include transform(translateX(-100%));
+            transition: all .25s ease;
+        }
+
+        .owl-next {
+            @include transform(translateX(100%));
+            transition: all .25s ease;
+
+            i {
+                padding-left: 2px;
+
+                transition: all .25s ease;
+            }
+        }
+    }
+
+    .owl-dots {
+        position: absolute;
+        bottom: 20px;
+        left: 0;
+        width: 100%;
+        text-align: center;
+
+        .owl-dot {
+            display: inline-block;
+            margin-right: 10px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: rgba(#fff, .5);
+
+            &:hover, &.active {
+                background-color: #ffffff;
+            }
+
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+    }
+
+    &:hover {
+        .owl-nav {
+            .owl-prev {
+                @include transform(translateX(0));
+            }
+
+            .owl-next {
+                @include transform(translateX(0));
+            }
+        }
+    }
+}
+
+.ps-carousel--nav-inside {
+    overflow: hidden;
+
+    .owl-nav {
+        @include vertical-align();
+        left: 0;
+        width: 100%;
+        height: 0;
+        display: flex;
+        justify-content: space-between;
+
+        > * {
+            position: relative;
+            background-color: rgba(#000, .1);
+            width: 40px;
+            height: 40px;
+            @include transform(translateY(-50%));
+
+            > i {
+                @include center();
+                color: $color-heading;
+            }
+        }
+
+        .owl-prev {
+            padding-right: 2px;
+        }
+
+        .owl-next {
+            transition: all .25s ease;
+
+            i {
+                padding-left: 2px;
+            }
+        }
+    }
+
+    .owl-dots {
+        position: absolute;
+        bottom: 20px;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        display: none;
+        @include hidden;
+
+        .owl-dot {
+            display: inline-block;
+            margin-right: 10px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: rgba(#fff, .5);
+
+            &:hover, &.active {
+                background-color: #ffffff;
+            }
+
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+    }
+
+    &.second {
+        .owl-nav {
+            > * {
+                width: 48px;
+                height: 48px;
+                background-color: rgba(#000, .3);
+
+                i {
+                    font-size: 18px;
+                    color: #ffffff;
+                }
+
+                &:hover {
+                    background-color: #000;
+                }
+            }
+
+            .owl-prev {
+                margin-left: 20px;
+            }
+
+            .owl-next {
+                margin-right: 20px;
+            }
+        }
+    }
+
+    @include media("<lg") {
+        .owl-nav {
+            display: none;
+        }
+        .owl-dots {
+            display: block;
+            @include show;
+        }
+    }
+}
+
+.ps-carousel--dots {
+    .owl-dots {
+        position: absolute;
+        bottom: 10px;
+        left: 0;
+        width: 100%;
+        text-align: center;
+
+        .owl-dot {
+            display: inline-block;
+            margin-right: 10px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: rgba(#fff, .5);
+
+            &:hover, &.active {
+                background-color: $color-1st;
+            }
+
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+    }
+}
+
+

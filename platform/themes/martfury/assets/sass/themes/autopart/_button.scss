@@ -1,0 +1,7 @@
+.ps-btn, button.ps-btn {
+    background-color: $color-autopart;
+    color: #ffffff;
+    &:hover {
+        background-color: darken($color-autopart, 5%);
+    }
+}

@@ -1,0 +1,29 @@
+.ps-accordion {
+    margin-bottom: 20px;
+    &__header {
+        position: relative;
+        background-color: #f6f6f8;
+        padding: 10px 40px 10px 20px;
+        cursor: pointer;
+        p {
+            margin-bottom: 0;
+            line-height: 20px;
+            font-weight: 700;
+            color: $color-heading;
+        }
+        span {
+            @include vertical-align();
+            right: 0;
+            width: 40px;
+            height: 40px;
+            background-color: #222;
+            i {
+                @include center();
+                color: #ffffff;
+            }
+        }
+    }
+    &__content {
+        padding: 20px;
+    }
+}

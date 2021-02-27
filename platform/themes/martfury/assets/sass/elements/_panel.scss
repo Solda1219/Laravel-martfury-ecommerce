@@ -1,0 +1,98 @@
+.ps-panel--sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    max-width: 400px;
+    height: 100vh;
+    overflow-y: auto;
+    z-index: 10001;
+    background-color: #fff;
+    @include transform(translateX(-100%));
+    transition: all 0.5s cubic-bezier(0.7, 0, 0.3, 1) 0s;
+    @extend %list-reset;
+
+    .ps-panel__header {
+        position: relative;
+        text-align: center;
+        padding: 15px 20px;
+        background-color: $color-1st;
+
+        h3 {
+            margin-bottom: 0;
+            font-weight: 600;
+            color: #ffffff;
+            font-size: 1.6rem;
+            line-height: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .ps-btn--close {
+            @include vertical-align();
+            right: 10px;
+
+            &:before,
+            &:after {
+                background-color: #ffffff;
+                height: 60%;
+            }
+        }
+    }
+
+    .ps-panel__content {
+        padding-top: 10px;
+        padding-bottom: 70px;
+    }
+
+    &.active {
+        @include transform(translateX(0));
+    }
+
+    @include media('<xs') {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+.ps-panel--search-result {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    background-color: #fff;
+    border: 1px solid #eaeaea;
+    padding: 10px 20px;
+    transition: all 0.4s ease;
+    opacity: 0;
+    visibility: hidden;
+    @include transform(scale3d(1, 1, 0));
+    .ps-panel__content {
+        max-height: 400px;
+        overflow-y: auto;
+    }
+
+    .ps-panel__footer {
+        padding: 10px 0;
+        text-align: center;
+        border-top: 1px solid #eaeaea;
+    }
+
+    &.active {
+        @include transform(scale3d(1, 1, 1));
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .ps-product {
+        border-bottom: 1px solid #eaeaea;
+        padding-bottom: 10px;
+        &:hover {
+            border-bottom: 1px solid #eaeaea;
+        }
+        &:last-child {
+            border: none;
+        }
+    }
+}

@@ -1,0 +1,141 @@
+.header--medicine {
+    .header__extra {
+        span {
+            background-color: $color-med;
+
+            i {
+                color: #fff;
+            }
+        }
+    }
+
+    .header__left {
+        p {
+            strong {
+                color: $color-danger !important;
+            }
+            a {
+                font-weight: 500;
+                text-decoration: underline;
+                &:hover {
+                    color: $color-med;
+                }
+            }
+        }
+    }
+
+    .ps-form--quick-search {
+        max-width: 100%;
+        width: 100%;
+
+        .form-control {
+            background-color: #f9f9f9;
+        }
+
+        button {
+            color: #fff;
+            background-color: $color-med;
+        }
+    }
+
+    .ps-block--header-hotline {
+        p {
+            strong {
+                color: $color-med;
+            }
+        }
+    }
+    .ps-block--user-header {
+        a {
+            &:hover {
+                color: $color-med;
+            }
+        }
+    }
+
+    .ps-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        > * {
+            flex-basis: 100%;
+        }
+
+        .header__content-center {
+            max-width: 100%;
+        }
+
+        .header__content-right {
+            max-width: 500px;
+        }
+    }
+
+    .navigation {
+        background-color: #fff;
+        border-bottom: 1px solid #eaeaea;
+    }
+
+    .menu--medicine {
+        position: relative;
+        a {
+            &:hover {
+                color: $color-med !important;
+            }
+        }
+        .has-mega-menu {
+            position: static;
+        }
+    }
+
+    .menu--product-categories {
+        li {
+            a {
+
+            }
+            &:hover {
+                background-color: $color-med;
+                a {
+                    color: #fff;
+                }
+            }
+        }
+    }
+
+    .mega-menu {
+        max-width: 960px;
+        width: 100%;
+        flex-flow: row wrap;
+        align-items: flex-start;
+
+        > * {
+            max-width: 25%;
+            flex-basis: 100%;
+        }
+    }
+
+    &.header--sticky {
+        .ps-logo {
+            display: inline-block;
+        }
+    }
+
+    @media screen and (max-width: 1365px) {
+        .ps-block--header-hotline {
+            display: none;
+        }
+
+        .ps-container {
+            .header__content-right {
+                max-width: 500px;
+            }
+        }
+    }
+}
+
+.header--mobile-medicine {
+    background-color: #fff;
+    .navigation--mobile {
+        background-color: #fff !important;
+    }
+}

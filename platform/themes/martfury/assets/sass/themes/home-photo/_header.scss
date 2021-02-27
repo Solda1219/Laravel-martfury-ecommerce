@@ -1,0 +1,109 @@
+.header--photo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 20;
+    display: flex;
+    justify-content: space-between;
+    padding: 25px 30px;
+
+    .menu {
+        > li {
+            > a {
+                &:hover {
+                    color: $color-photo;
+                }
+            }
+        }
+    }
+
+    .header__extra {
+        span {
+            background-color: $color-photo;
+        }
+
+        &:hover {
+            > i {
+                color: $color-photo;
+            }
+        }
+    }
+
+    .ps-block--user-header {
+        .ps-block__right {
+            display: flex;
+            align-items: center;
+
+            a {
+                &:hover {
+                    color: $color-photo;
+                }
+            }
+        }
+    }
+
+    .header__language {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .select2 {
+            width: auto;
+            max-width: 80px;
+
+            .select2-selection {
+                border: none;
+                background-color: transparent;
+
+                .select2-selection__rendered {
+                    padding-left: 10px;
+                    font-weight: 600;
+                    color: $color-heading;
+                    text-transform: uppercase;
+                }
+            }
+        }
+    }
+
+    .header__content {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &.header--sticky {
+        background-color: #fff;
+    }
+
+    @media (min-width: 1440px) {
+        padding: 25px 60px;
+    }
+
+    @media (max-width: 1199px) {
+        display: none;
+    }
+}
+
+.header--mobile-photo {
+    background-color: #fff;
+
+    &.header--sticky {
+        .navigation--mobile {
+            background-color: #fff;
+        }
+    }
+}
+
+.ps-panel--sidebar {
+    .ps-panel__header {
+        background-color: $color-photo;
+    }
+}
+
+.navigation--list {
+    .navigation__item.active {
+        i, span{
+            color: $color-photo;
+        }
+    }
+}

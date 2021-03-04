@@ -90,6 +90,7 @@
 <script>
     var veriel = document.getElementById('verify');
     
+    var phoneModified= '';
     if(veriel){
         document.getElementById('verify').addEventListener('click', onVerifyCodeSubmit);
         function onVerifyCodeSubmit(e) {
@@ -111,7 +112,7 @@
                   'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
                 }
               });
-              $.post( "/register", { name: txtname, email: txtemail, phone: txtphone, password: txtpassword } ).then(function (response) {
+              $.post( "/register", { name: txtname, email: txtemail, phone: phoneModified, password: txtpassword } ).then(function (response) {
                     window.location.href="/customer/overview";
                       
 
@@ -134,7 +135,7 @@
         console.log("resend btn clicked");
         var txtphone= document.getElementById('txt-phone').value;
         var appVerifier = window.recaptchaVerifier;
-        firebase.auth().signInWithPhoneNumber(txtphone, appVerifier)
+        firebase.auth().signInWithPhoneNumber(phoneModified, appVerifier)
             .then(function (confirmationResult) {
                 window.confirmationResult= confirmationResult;
                 // var confirmationResult= JSON.stringify(confirmationResult);
@@ -150,7 +151,7 @@
                 }
                 else{
                     // alert("another error occured");
-                    // console.error("another error", error);
+                    console.error("another error in resend", error);
                 }
             });
         }
@@ -172,7 +173,6 @@
             var txtphone= document.getElementById('txt-phone').value;
             var txtpassword= document.getElementById('txt-password').value;
             var txtrepass= document.getElementById('txt-password-confirmation').value;
-
 
             // validation part
             if(document.getElementById('registerForm').style.display!="none"){
@@ -216,6 +216,12 @@
                     return 0;
                 }
                 
+                if(txtphone.includes('+880')){
+                    phoneModified= txtphone;
+                }
+                else{
+                    phoneModified= '+880'+txtphone;
+                }
                 // This is for email unique
                 $.get("/emailUnique", {'email': txtemail})
                     .then(function (response) {
@@ -235,8 +241,7 @@
 
                             // });
                             var appVerifier = window.recaptchaVerifier;
-                            
-                            firebase.auth().signInWithPhoneNumber(txtphone, appVerifier)
+                            firebase.auth().signInWithPhoneNumber(phoneModified, appVerifier)
                                 .then(function (confirmationResult) {
                                   window.confirmationResult= confirmationResult;
                                   document.getElementById('registerForm').style.display= "none";
@@ -248,13 +253,13 @@
                                 }).catch(function (error) {
                                     if(error.code== "auth/invalid-phone-number"){
                                         // location.reload();
-                                        // alert("Phone Number invalid");
+                                        console.log(error.code);
                                         document.getElementById("phoneinvalidAlert").style.display= "block";
                                         
                                     }
                                     else{
                                         // alert("another error occured");
-                                        // console.error("another error", error);
+                                        console.error("another error", error);
                                     }
                                 });
                         }

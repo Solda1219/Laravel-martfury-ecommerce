@@ -33,6 +33,7 @@
         <script>
           // Your web app's Firebase configuration
           // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+          // this is for local
           var firebaseConfig = {
             apiKey: "AIzaSyAlMgdzUQ7wHWwKNCmT_MASniJJQc5abrw",
             authDomain: "rapasshop.firebaseapp.com",
@@ -42,6 +43,17 @@
             appId: "1:389358954785:web:2eb8ad4e5914c68b163660",
             measurementId: "G-PL7JVWHHKJ"
           };
+
+          // this is for hosted.
+          /* const firebaseConfig = {
+            apiKey: "AIzaSyB6cCqJWiPHAX-33Mti2B9PccjWJnzQWKg",
+            authDomain: "rafas-36558.firebaseapp.com",
+            projectId: "rafas-36558",
+            storageBucket: "rafas-36558.appspot.com",
+            messagingSenderId: "433607210920",
+            appId: "1:433607210920:web:e29fbfbb895aa82fac0f9d",
+            measurementId: "G-M7LG36ZBQH"
+          }; */
           // Initialize Firebase
           firebase.initializeApp(firebaseConfig);
           firebase.analytics();
